@@ -122,7 +122,7 @@ Contributing
 Contributions are welcome! If you have suggestions for improvements or new features, please fork the repository and create a pull request, or open an issue with the tag "enhancement".
 
 License
-This project is open source and available under the MIT License (You should create a LICENSE.md file if you intend for this to be open-source).
+This project is open source and available under the MIT License.
 
 Contact
 For any inquiries, please contact:
