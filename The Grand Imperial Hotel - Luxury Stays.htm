@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> The Grand Imperial Hotel - Luxury Stays</title>
+    <link rel="stylesheet" href="The%20Grand%20Imperial%20Hotel%20-%20Luxury%20Stays_files/flatpickr.min.css">
+    <script src="The%20Grand%20Imperial%20Hotel%20-%20Luxury%20Stays_files/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="The%20Grand%20Imperial%20Hotel%20-%20Luxury%20Stays_files/css2.css" rel="stylesheet">
+
+    <style>
+        /* General Styling */
+        :root {
+            --primary-color: #A37F5D; /* Inspired by gold/bronze in the image */
+            --secondary-color: #4A3C2A; /* Darker brown/gold */
+            --text-dark: #333;
+            --text-light: #f4f4f4;
+            --bg-light: #f9f7f5; /* Light cream/beige */
+            --bg-dark: #222;
+            --accent-gold: #D4AF37; /* More vibrant gold for accents */
+            --border-color: #ddd;
+            --hover-effect: brightness(1.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-gold);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 2rem;
+            overflow: hidden;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 0.8rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+        }
+
+        /* Header & Navbar */
+        .hero-section {
+            background: url('WhatsApp Image 2025-05-21 at 17.08.38.jpeg') no-repeat center center/cover;
+            height: 80vh; /* Adjust as needed */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-light);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            position: relative; /* Needed for overlay */
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+            z-index: 1;
+        }
+
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 4rem;
+            background: rgba(0, 0, 0, 0.3); /* Slightly transparent background */
+            z-index: 2; /* Above the overlay */
+        }
+
+        .navbar .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        .navbar ul {
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-left: 2rem;
+        }
+
+        .navbar ul li a {
+            color: var(--text-light);
+            font-weight: 400;
+            padding: 0.5rem 0.8rem;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2; /* Above the overlay */
+            padding-bottom: 5rem;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        /* Main Content Sections */
+        main {
+            padding: 3rem 0;
+        }
+
+        section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .search-section {
+            background-color: var(--bg-light);
+            padding: 3rem 0;
+            margin-top: -80px; /* Pull it up over the hero section */
+            position: relative;
+            z-index: 3; /* Ensure it's above other elements */
+        }
+
+        .search-form-container {
+            background: #fff;
+            padding: 2.5rem 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .search-form-container h2 {
+            width: 100%;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+        }
+
+        .form-group {
+            flex: 1 1 calc(50% - 1.5rem); /* Two items per row on larger screens */
+            min-width: 250px; /* Minimum width for form group */
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea { /* Added textarea */
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .search-form-container button,
+        .contact-form button { /* Added contact form button */
+            margin-top: 1.5rem;
+            width: auto; /* Adjust button width */
+        }
+
+
+        /* Rooms Section */
+        .rooms-section {
+            background-color: var(--bg-light);
+            padding: 5rem 2rem;
+        }
+
+        .rooms-section h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .room-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .room-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .room-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .room-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .room-card h3 {
+            font-size: 1.8rem;
+            margin: 1.5rem 1.5rem 0.8rem;
+            color: var(--secondary-color);
+        }
+
+        .room-card p {
+            font-size: 1rem;
+            color: #666;
+            margin: 0 1.5rem 1rem;
+        }
+
+        .room-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 0 1.5rem 1.5rem;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .room-details span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .room-details i {
+            color: var(--primary-color);
+        }
+
+        .room-price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 0 1.5rem 1.5rem;
+        }
+
+        .room-card .book-room-btn {
+            width: calc(100% - 3rem);
+            margin: 0 1.5rem 1.5rem;
+            text-align: center;
+        }
+
+        /* Amenities Section */
+        .amenities-section {
+            background-color: #fff;
+            padding: 5rem 2rem;
+        }
+        .amenities-section h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+        }
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .amenity-item {
+            background-color: var(--bg-light);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .amenity-item i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .amenity-item h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+        .amenity-item p {
+            font-size: 1rem;
+            color: #555;
+            margin-top: 0.5rem;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background-color: var(--bg-light);
+            padding: 5rem 2rem;
+        }
+        .gallery-section h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: #fff;
+            padding: 5rem 2rem;
+        }
+        .contact-section h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+        }
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .contact-info, .contact-form {
+            flex: 1 1 45%;
+            min-width: 300px;
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+        .contact-info h3, .contact-form h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+        .contact-info p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .contact-info i {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+
+        /* Booking Details & Payment Section */
+        .booking-details-section, .booking-confirmation-section {
+            background-color: var(--bg-light);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .booking-details-section h2, .booking-confirmation-section h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .booking-summary, .payment-section, .confirmation-details {
+            background: #fff;
+            padding: 2.5rem 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            max-width: 700px;
+            margin: 2rem auto;
+            text-align: left;
+        }
+
+        .booking-summary h3, .payment-section h3, .confirmation-details h3 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .booking-summary p, .confirmation-details p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .booking-summary strong, .confirmation-details strong {
+            color: var(--primary-color);
+        }
+
+        #payment-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        #payment-form .form-row {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        #payment-form .form-row .form-group {
+            flex: 1;
+        }
+
+        #payment-form button {
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .message-area {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none; /* Hidden by default */
+        }
+
+        .message-area.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message-area.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: var(--text-light);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin: 0 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .navbar {
+                padding: 1.5rem 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .search-form-container {
+                padding: 2rem;
+                gap: 1rem;
+            }
+
+            .form-group {
+                flex: 1 1 100%; /* Stack items on small screens */
+            }
+
+            .room-list {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .booking-summary, .payment-section, .confirmation-details {
+                padding: 2rem;
+            }
+
+            .contact-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact-info, .contact-form {
+                flex: 1 1 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .navbar ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.8rem;
+            }
+
+            .navbar ul li {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-section {
+                height: 60vh;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .search-form-container {
+                margin: 0 1rem;
+            }
+
+            .rooms-section h2, .booking-details-section h2, .booking-confirmation-section h2,
+            .amenities-section h2, .gallery-section h2, .contact-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .room-card {
+                margin: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero-section" id="home">
+        <div class="navbar">
+            <div class="logo">The Grand Imperial</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#rooms">Rooms &amp; Suites</a></li>
+                    <li><a href="#amenities">Amenities</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#search-rooms" class="btn btn-primary">Book Now</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="hero-content">
+            <h1>Experience Unrivaled Luxury</h1>
+            <p>Your unforgettable journey begins here.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="search-section" id="search-rooms">
+            <div class="search-form-container">
+                <h2>Find Your Perfect Stay</h2>
+                <form id="room-search-form">
+                    <div class="form-group">
+                        <label for="check-in">Check-in Date</label>
+                        <input type="text" id="check-in" class="flatpickr flatpickr-input" placeholder="Select Date" required="" readonly="readonly">
+                    </div>
+                    <div class="form-group">
+                        <label for="check-out">Check-out Date</label>
+                        <input type="text" id="check-out" class="flatpickr flatpickr-input" placeholder="Select Date" required="" readonly="readonly">
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Guests</label>
+                        <select id="guests" required="">
+                            <option value="1" selected="selected">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4+ Guests</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="room-type">Room Category</label>
+                        <select id="room-type">
+                            <option value="any" selected="selected">Any</option>
+                            <option value="Single">Single</option>
+                            <option value="Double">Double</option>
+                            <option value="Suite">Suite</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Search Available Rooms</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="rooms" class="rooms-section">
+            <h2>Our Exquisite Rooms &amp; Suites</h2>
+            <div class="room-list"><div class="room-card">
+                        <img src="The%20Grand%20Imperial%20Hotel%20-%20Luxury%20Stays_files/WhatsApp%20Image%202025-05-21%20at%2020.08.17.jpeg" alt="Deluxe Single Room">
+                        <h3>Deluxe Single Room</h3>
+                        <p>A cozy single room with modern amenities, perfect for solo travelers.</p>
+                        <div class="room-details">
+                            <span><i class="fas fa-users"></i> 1 Guests</span>
+                            <span><i class="fas fa-bed"></i> Single</span>
+                            <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        </div>
+                        <div class="room-price">₹5,000/night</div>
+                        <button class="btn btn-primary book-room-btn" data-room-id="R001">Book Now</button>
+                    </div><div class="room-card">
+                        <img src="The%20Grand%20Imperial%20Hotel%20-%20Luxury%20Stays_files/WhatsApp%20Image%202025-05-21%20at%2020.07.51.jpeg" alt="Standard Double Room">
+                        <h3>Standard Double Room</h3>
+                        <p>Comfortable double room with a city view, ideal for couples.</p>
+                        <div class="room-details">
+                            <span><i class="fas fa-users"></i> 2 Guests</span>
+                            <span><i class="fas fa-bed"></i> Double</span>
+                            <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        </div>
+                        <div class="room-price">₹8,000/night</div>
+                        <button class="btn btn-primary book-room-btn" data-room-id="R002">Book Now</button>
+                    </div><div class="room-card">
+                        <img src="The%20Grand%20Imperial%20Hotel%20-%20Luxury%20Stays_files/WhatsApp%20Image%202025-05-21%20at%2020.07.22.jpeg" alt="Executive Suite">
+                        <h3>Executive Suite</h3>
+                        <p>Spacious suite with a separate living area and premium amenities.</p>
+                        <div class="room-details">
+                            <span><i class="fas fa-users"></i> 2 Guests</span>
+                            <span><i class="fas fa-bed"></i> Suite</span>
+                            <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        </div>
+                        <div class="room-price">₹15,000/night</div>
+                        <button class="btn btn-primary book-room-btn" data-room-id="R003">Book Now</button>
+                    </div><div class="room-card">
+                        <img src="The%20Grand%20Imperial%20Hotel%20-%20Luxury%20Stays_files/WhatsApp%20Image%202025-05-21%20at%2020.05.48.jpeg" alt="Family Suite">
+                        <h3>Family Suite</h3>
+                        <p>Large suite designed for families, offering comfort and space.</p>
+                        <div class="room-details">
+                            <span><i class="fas fa-users"></i> 4 Guests</span>
+                            <span><i class="fas fa-bed"></i> Suite</span>
+                            <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        </div>
+                        <div class="room-price">₹20,000/night</div>
+                        <button class="btn btn-primary book-room-btn" data-room-id="R004">Book Now</button>
+                    </div><div class="room-card">
+                        <img src="The%20Grand%20Imperial%20Hotel%20-%20Luxury%20Stays_files/WhatsApp%20Image%202025-05-21%20at%2020.01.46.jpeg" alt="Presidential Suite">
+                        <h3>Presidential Suite</h3>
+                        <p>The epitome of luxury with breathtaking views and bespoke services.</p>
+                        <div class="room-details">
+                            <span><i class="fas fa-users"></i> 4 Guests</span>
+                            <span><i class="fas fa-bed"></i> Suite</span>
+                            <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        </div>
+                        <div class="room-price">₹30,000/night</div>
+                        <button class="btn btn-primary book-room-btn" data-room-id="R005">Book Now</button>
+                    </div></div>
+            <div id="room-list-message" class="message-area" style="display: none;"></div>
+        </section>
+
+        <section id="booking-details-section" class="booking-details-section" style="display: none;">
+            <h2>Confirm Your Booking</h2>
+            <div class="booking-summary">
+                </div>
+            <div class="payment-section">
+                <h3>Guest &amp; Payment Information</h3>
+                <form id="payment-form">
+                    <div class="form-group">
+                        <label for="guest-name">Your Full Name</label>
+                        <input type="text" id="guest-name" placeholder="John Doe" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="guest-email">Email Address</label>
+                        <input type="email" id="guest-email" placeholder="john.doe@example.com" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX" required="" pattern="[0-9]{13,19}">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiry-date">Expiry Date</label>
+                            <input type="text" id="expiry-date" placeholder="MM/YY" required="" pattern="(0[1-9]|1[0-2])\/([0-9]{2})">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" placeholder="123" required="" pattern="[0-9]{3,4}">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Confirm &amp; Pay</button>
+                </form>
+            </div>
+            <div id="booking-message" class="message-area"></div>
+        </section>
+
+        <section id="booking-confirmation-section" class="booking-confirmation-section" style="display: none;">
+            <h2>Booking Confirmed!</h2>
+            <div class="confirmation-details">
+                </div>
+            <button class="btn btn-primary" onclick="location.reload()">Book Another Room</button>
+        </section>
+
+        <section id="amenities" class="amenities-section">
+            <h2>Our World-Class Amenities</h2>
+            <div class="amenities-grid">
+                <div class="amenity-item">
+                    <i class="fas fa-swimming-pool"></i>
+                    <h3>Infinity Pool</h3>
+                    <p>Relax and unwind in our stunning rooftop infinity pool with panoramic city views.</p>
+                </div>
+                <div class="amenity-item">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Fine Dining</h3>
+                    <p>Savor exquisite culinary delights at our gourmet restaurants and elegant bars.</p>
+                </div>
+                <div class="amenity-item">
+                    <i class="fas fa-spa"></i>
+                    <h3>Luxurious Spa</h3>
+                    <p>Indulge in rejuvenating treatments and therapies at our tranquil in-house spa.</p>
+                </div>
+                <div class="amenity-item">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Fitness Center</h3>
+                    <p>Stay active with our state-of-the-art fitness center, open 24/7.</p>
+                </div>
+                <div class="amenity-item">
+                    <i class="fas fa-concierge-bell"></i>
+                    <h3>24/7 Concierge</h3>
+                    <p>Our dedicated concierge team is at your service for all your needs.</p>
+                </div>
+                <div class="amenity-item">
+                    <i class="fas fa-wifi"></i>
+                    <h3>High-Speed Wi-Fi</h3>
+                    <p>Complimentary high-speed internet access throughout the hotel for all guests.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery-section">
+            <h2>Gallery: A Glimpse of Grandeur</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="The%20Grand%20Imperial%20Hotel%20-%20Luxury%20Stays_files/WhatsApp%20Image%202025-05-21%20at%2017.08.38.jpeg" alt="Hotel Lobby"></div>
+                <div class="gallery-item"><img src="The%20Grand%20Imperial%20Hotel%20-%20Luxury%20Stays_files/WhatsApp%20Image%202025-05-21%20at%2018.28.42.jpeg" alt="Restaurant View"></div>
+                <div class="gallery-item"><img src="The%20Grand%20Imperial%20Hotel%20-%20Luxury%20Stays_files/WhatsApp%20Image%202025-05-21%20at%2019.01.56.jpeg" alt="Pool Area"></div>
+                <div class="gallery-item"><img src="The%20Grand%20Imperial%20Hotel%20-%20Luxury%20Stays_files/WhatsApp%20Image%202025-05-21%20at%2018.29.04.jpeg" alt="Room view"></div>
+                <div class="gallery-item"><img src="The%20Grand%20Imperial%20Hotel%20-%20Luxury%20Stays_files/WhatsApp%20Image%202025-05-21%20at%2018.28.52.jpeg" alt="Reception"></div>
+                <div class="gallery-item"><img src="The%20Grand%20Imperial%20Hotel%20-%20Luxury%20Stays_files/WhatsApp%20Image%202025-05-21%20at%2019.09.17.jpeg" alt="Bar Lounge"></div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jugnitola ,Paschim Midnapore</p>
+                    <p><i class="fas fa-phone"></i> +91 **********</p>
+                    <p><i class="fas fa-envelope"></i> info@grandimperial.com</p>
+                    <p><i class="fas fa-clock"></i> Open 24/7</p>
+                    <p>Feel free to reach out to us for any inquiries or special requests.</p>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="contact-name">Your Name</label>
+                            <input type="text" id="contact-name" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Your Email</label>
+                            <input type="email" id="contact-email" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" rows="5" required=""></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 The Grand Imperial Hotel. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="The%20Grand%20Imperial%20Hotel%20-%20Luxury%20Stays_files/flatpickr"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize Flatpickr
+            flatpickr("#check-in", {
+                dateFormat: "Y-m-d",
+                minDate: "today",
+                onChange: function(selectedDates, dateStr, instance) {
+                    if (selectedDates.length > 0) {
+                        checkoutPicker.set('minDate', selectedDates[0]);
+                    }
+                }
+            });
+            const checkoutPicker = flatpickr("#check-out", {
+                dateFormat: "Y-m-d",
+                minDate: "today"
+            });
+
+            const roomListings = document.querySelector('.room-list');
+            const roomListMessage = document.getElementById('room-list-message');
+            const bookingDetailsSection = document.getElementById('booking-details-section');
+            const bookingSummaryDiv = document.querySelector('.booking-summary');
+            const paymentForm = document.getElementById('payment-form');
+            const bookingMessage = document.getElementById('booking-message');
+            const bookingConfirmationSection = document.getElementById('booking-confirmation-section');
+            const confirmationDetailsDiv = document.querySelector('.confirmation-details');
+            const roomsSection = document.getElementById('rooms');
+            const searchSection = document.getElementById('search-rooms');
+
+            let availableRooms = []; // Store fetched rooms
+            let selectedRoom = null;
+            let bookingDates = {
+                checkIn: null,
+                checkOut: null
+            };
+            let numberOfGuests = 0;
+
+
+            // --- Room Data (simulate fetching from a database/API) ---
+            const allRooms = [
+                {
+                    id: 'R001',
+                    name: 'Deluxe Single Room',
+                    type: 'Single',
+                    guests: 1,
+                    pricePerNight: 5000,
+                    description: 'A cozy single room with modern amenities, perfect for solo travelers.',
+                    image: 'WhatsApp Image 2025-05-21 at 20.08.17.jpeg',
+                    amenities: ['Free Wi-Fi', 'Flat-screen TV', 'Mini-bar', 'Private Bathroom']
+                },
+                {
+                    id: 'R002',
+                    name: 'Standard Double Room',
+                    type: 'Double',
+                    guests: 2,
+                    pricePerNight: 8000,
+                    description: 'Comfortable double room with a city view, ideal for couples.',
+                    image: 'WhatsApp Image 2025-05-21 at 20.07.51.jpeg',
+                    amenities: ['Free Wi-Fi', 'King Bed', 'Air Conditioning', 'Work Desk']
+                },
+                {
+                    id: 'R003',
+                    name: 'Executive Suite',
+                    type: 'Suite',
+                    guests: 2,
+                    pricePerNight: 15000,
+                    description: 'Spacious suite with a separate living area and premium amenities.',
+                    image: 'WhatsApp Image 2025-05-21 at 20.07.22.jpeg',
+                    amenities: ['Free Wi-Fi', 'King Bed', 'Living Area', 'Jacuzzi', 'City View']
+                },
+                {
+                    id: 'R004',
+                    name: 'Family Suite',
+                    type: 'Suite',
+                    guests: 4,
+                    pricePerNight: 20000,
+                    description: 'Large suite designed for families, offering comfort and space.',
+                    image: 'WhatsApp Image 2025-05-21 at 20.05.48.jpeg', // Using a relevant image
+                    amenities: ['Free Wi-Fi', 'Two Queen Beds', 'Separate Bedrooms', 'Kitchenette']
+                },
+                {
+                    id: 'R005',
+                    name: 'Presidential Suite',
+                    type: 'Suite',
+                    guests: 4,
+                    pricePerNight: 30000,
+                    description: 'The epitome of luxury with breathtaking views and bespoke services.',
+                    image: 'WhatsApp Image 2025-05-21 at 20.01.46.jpeg', // Using a relevant image
+                    amenities: ['Free Wi-Fi', 'King Bed', 'Private Butler', 'Dining Area', 'Panoramic Views']
+                }
+            ];
+
+            // Function to display messages
+            function displayMessage(element, message, type) {
+                element.textContent = message;
+                element.className = `message-area ${type}`;
+                element.style.display = 'block';
+                setTimeout(() => {
+                    element.style.display = 'none';
+                }, 5000);
+            }
+
+            // Function to render rooms
+            function renderRooms(rooms) {
+                roomListings.innerHTML = ''; // Clear previous listings
+                if (rooms.length === 0) {
+                    roomListings.innerHTML = '<p class="loading-message">No rooms found matching your criteria. Please adjust your search.</p>';
+                    return;
+                }
+
+                rooms.forEach(room => {
+                    const roomCard = document.createElement('div');
+                    roomCard.classList.add('room-card');
+                    roomCard.innerHTML = `
+                        <img src="${room.image}" alt="${room.name}">
+                        <h3>${room.name}</h3>
+                        <p>${room.description}</p>
+                        <div class="room-details">
+                            <span><i class="fas fa-users"></i> ${room.guests} Guests</span>
+                            <span><i class="fas fa-bed"></i> ${room.type}</span>
+                            <span><i class="fas fa-wifi"></i> Wi-Fi</span>
+                        </div>
+                        <div class="room-price">₹${room.pricePerNight.toLocaleString()}/night</div>
+                        <button class="btn btn-primary book-room-btn" data-room-id="${room.id}">Book Now</button>
+                    `;
+                    roomListings.appendChild(roomCard);
+                });
+
+                attachBookNowListeners(); // Attach listeners after rendering
+            }
+
+            // Attach event listeners to "Book Now" buttons
+            function attachBookNowListeners() {
+                document.querySelectorAll('.book-room-btn').forEach(button => {
+                    button.onclick = function() {
+                        const roomId = this.dataset.roomId;
+                        selectedRoom = allRooms.find(room => room.id === roomId);
+                        if (selectedRoom && bookingDates.checkIn && bookingDates.checkOut && numberOfGuests) {
+                            showBookingDetails();
+                        } else {
+                            displayMessage(roomListMessage, 'Please select valid check-in/out dates and number of guests first.', 'error');
+                            // Scroll to search section if dates are missing
+                            document.getElementById('search-rooms').scrollIntoView({ behavior: 'smooth' });
+                        }
+                    };
+                });
+            }
+
+            // Handle room search form submission
+            document.getElementById('room-search-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const checkInDate = document.getElementById('check-in').value;
+                const checkOutDate = document.getElementById('check-out').value;
+                const guests = parseInt(document.getElementById('guests').value);
+                const roomType = document.getElementById('room-type').value;
+
+                if (!checkInDate || !checkOutDate) {
+                    displayMessage(roomListMessage, 'Please select both check-in and check-out dates.', 'error');
+                    return;
+                }
+
+                const startDate = new Date(checkInDate);
+                const endDate = new Date(checkOutDate);
+
+                if (startDate >= endDate) {
+                    displayMessage(roomListMessage, 'Check-out date must be after check-in date.', 'error');
+                    return;
+                }
+
+                bookingDates.checkIn = startDate;
+                bookingDates.checkOut = endDate;
+                numberOfGuests = guests;
+
+                // Filter rooms based on search criteria
+                availableRooms = allRooms.filter(room => {
+                    const matchesGuests = room.guests >= guests; // Room can accommodate at least the number of guests
+                    const matchesType = roomType === 'any' || room.type === roomType;
+                    // For a real app, you'd also check actual room availability for the dates
+                    return matchesGuests && matchesType;
+                });
+
+                renderRooms(availableRooms);
+                if (availableRooms.length === 0) {
+                     displayMessage(roomListMessage, 'No rooms available for the selected criteria. Try different dates or guest count.', 'error');
+                } else {
+                    roomListMessage.style.display = 'none'; // Hide message if rooms are found
+                }
+
+                // Scroll to rooms section
+                roomsSection.scrollIntoView({ behavior: 'smooth' });
+            });
+
+
+            // Function to show booking details section
+            function showBookingDetails() {
+                if (!selectedRoom || !bookingDates.checkIn || !bookingDates.checkOut || !numberOfGuests) {
+                    displayMessage(bookingMessage, 'Missing booking details. Please search for a room and try again.', 'error');
+                    return;
+                }
+
+                const timeDiff = Math.abs(bookingDates.checkOut.getTime() - bookingDates.checkIn.getTime());
+                const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                const totalPrice = selectedRoom.pricePerNight * diffDays;
+
+                bookingSummaryDiv.innerHTML = `
+                    <h3>Booking Summary</h3>
+                    <p><strong>Room:</strong> ${selectedRoom.name} (${selectedRoom.type})</p>
+                    <p><strong>Check-in:</strong> ${bookingDates.checkIn.toDateString()}</p>
+                    <p><strong>Check-out:</strong> ${bookingDates.checkOut.toDateString()}</p>
+                    <p><strong>Nights:</strong> ${diffDays}</p>
+                    <p><strong>Guests:</strong> ${numberOfGuests}</p>
+                    <p><strong>Price per Night:</strong> ₹${selectedRoom.pricePerNight.toLocaleString()}</p>
+                    <p><strong>Total Price:</strong> ₹${totalPrice.toLocaleString()}</p>
+                `;
+
+                // Hide other sections and show booking details
+                roomsSection.style.display = 'none';
+                searchSection.style.display = 'none';
+                bookingDetailsSection.style.display = 'block';
+                bookingConfirmationSection.style.display = 'none';
+
+                // Scroll to booking details
+                bookingDetailsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Handle payment form submission
+            paymentForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const guestName = document.getElementById('guest-name').value;
+                const guestEmail = document.getElementById('guest-email').value;
+                const cardNumber = document.getElementById('card-number').value;
+                const expiryDate = document.getElementById('expiry-date').value;
+                const cvv = document.getElementById('cvv').value;
+
+                // Basic client-side validation
+                if (!guestName || !guestEmail || !cardNumber || !expiryDate || !cvv) {
+                    displayMessage(bookingMessage, 'Please fill in all guest and payment details.', 'error');
+                    return;
+                }
+
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(guestEmail)) {
+                    displayMessage(bookingMessage, 'Please enter a valid email address.', 'error');
+                    return;
+                }
+
+                if (!/^[0-9]{13,19}$/.test(cardNumber.replace(/\s/g, ''))) { // Remove spaces for validation
+                    displayMessage(bookingMessage, 'Please enter a valid card number (13-19 digits).', 'error');
+                    return;
+                }
+
+                if (!/^(0[1-9]|1[0-2])\/([0-9]{2})$/.test(expiryDate)) {
+                    displayMessage(bookingMessage, 'Please enter expiry date in MM/YY format.', 'error');
+                    return;
+                }
+
+                const [month, year] = expiryDate.split('/').map(Number);
+                const currentYear = new Date().getFullYear() % 100; // Get last two digits of current year
+                const currentMonth = new Date().getMonth() + 1; // Month is 0-indexed
+
+                if (year < currentYear || (year === currentYear && month < currentMonth)) {
+                    displayMessage(bookingMessage, 'Credit card has expired.', 'error');
+                    return;
+                }
+
+
+                if (!/^[0-9]{3,4}$/.test(cvv)) {
+                    displayMessage(bookingMessage, 'Please enter a valid CVV (3 or 4 digits).', 'error');
+                    return;
+                }
+
+
+                // Simulate API call for payment processing
+                bookingMessage.style.display = 'none'; // Hide previous messages
+                displayMessage(bookingMessage, 'Processing payment...', 'info'); // 'info' type can be added to CSS
+
+                setTimeout(() => {
+                    const paymentSuccess = Math.random() > 0.1; // 90% success rate for demo
+
+                    if (paymentSuccess) {
+                        displayMessage(bookingMessage, 'Payment successful! Redirecting to confirmation...', 'success');
+                        setTimeout(() => {
+                            showBookingConfirmation({
+                                room: selectedRoom.name,
+                                checkIn: bookingDates.checkIn.toDateString(),
+                                checkOut: bookingDates.checkOut.toDateString(),
+                                guests: numberOfGuests,
+                                total: (selectedRoom.pricePerNight * Math.ceil(Math.abs(bookingDates.checkOut.getTime() - bookingDates.checkIn.getTime()) / (1000 * 3600 * 24))).toLocaleString(),
+                                confirmationId: 'CONF' + Math.floor(Math.random() * 1000000)
+                            });
+                        }, 1500);
+                    } else {
+                        displayMessage(bookingMessage, 'Payment failed. Please try again or use a different card.', 'error');
+                    }
+                }, 2000); // Simulate network delay
+            });
+
+            // Function to show booking confirmation
+            function showBookingConfirmation(details) {
+                confirmationDetailsDiv.innerHTML = `
+                    <h3>Thank you for your booking!</h3>
+                    <p>Your reservation for <strong>${details.room}</strong> has been successfully placed.</p>
+                    <p><strong>Check-in:</strong> ${details.checkIn}</p>
+                    <p><strong>Check-out:</strong> ${details.checkOut}</p>
+                    <p><strong>Guests:</strong> ${details.guests}</p>
+                    <p><strong>Total Paid:</strong> ₹${details.total}</p>
+                    <p><strong>Confirmation ID:</strong> <strong>${details.confirmationId}</strong></p>
+                    <p>A confirmation email with all the details has been sent to your registered email address.</p>
+                `;
+
+                bookingDetailsSection.style.display = 'none';
+                bookingConfirmationSection.style.display = 'block';
+                bookingConfirmationSection.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            // Initial render of all rooms when page loads
+            renderRooms(allRooms);
+            roomListMessage.style.display = 'none'; // Hide loading message after initial render
+        });
+    </script>
+
+<div class="flatpickr-calendar animate" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month flatpickr-disabled"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><select class="flatpickr-monthDropdown-months" aria-label="Month" tabindex="-1"><option class="flatpickr-monthDropdown-month" value="4" tabindex="-1" selected="selected">May</option><option class="flatpickr-monthDropdown-month" value="5" tabindex="-1">June</option><option class="flatpickr-monthDropdown-month" value="6" tabindex="-1">July</option><option class="flatpickr-monthDropdown-month" value="7" tabindex="-1">August</option><option class="flatpickr-monthDropdown-month" value="8" tabindex="-1">September</option><option class="flatpickr-monthDropdown-month" value="9" tabindex="-1">October</option><option class="flatpickr-monthDropdown-month" value="10" tabindex="-1">November</option><option class="flatpickr-monthDropdown-month" value="11" tabindex="-1">December</option></select><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year" min="2025" value="2025"><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
+      <span class="flatpickr-weekday">
+        Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
+      </span>
+      </div></div><div class="flatpickr-days" tabindex="-1"><div class="dayContainer"><span class="flatpickr-day prevMonthDay flatpickr-disabled" aria-label="April 27, 2025">27</span><span class="flatpickr-day prevMonthDay flatpickr-disabled" aria-label="April 28, 2025">28</span><span class="flatpickr-day prevMonthDay flatpickr-disabled" aria-label="April 29, 2025">29</span><span class="flatpickr-day prevMonthDay flatpickr-disabled" aria-label="April 30, 2025">30</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 1, 2025">1</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 2, 2025">2</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 3, 2025">3</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 4, 2025">4</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 5, 2025">5</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 6, 2025">6</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 7, 2025">7</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 8, 2025">8</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 9, 2025">9</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 10, 2025">10</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 11, 2025">11</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 12, 2025">12</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 13, 2025">13</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 14, 2025">14</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 15, 2025">15</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 16, 2025">16</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 17, 2025">17</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 18, 2025">18</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 19, 2025">19</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 20, 2025">20</span><span class="flatpickr-day today" aria-label="May 21, 2025" aria-current="date" tabindex="-1">21</span><span class="flatpickr-day" aria-label="May 22, 2025" tabindex="-1">22</span><span class="flatpickr-day" aria-label="May 23, 2025" tabindex="-1">23</span><span class="flatpickr-day" aria-label="May 24, 2025" tabindex="-1">24</span><span class="flatpickr-day" aria-label="May 25, 2025" tabindex="-1">25</span><span class="flatpickr-day" aria-label="May 26, 2025" tabindex="-1">26</span><span class="flatpickr-day" aria-label="May 27, 2025" tabindex="-1">27</span><span class="flatpickr-day" aria-label="May 28, 2025" tabindex="-1">28</span><span class="flatpickr-day" aria-label="May 29, 2025" tabindex="-1">29</span><span class="flatpickr-day" aria-label="May 30, 2025" tabindex="-1">30</span><span class="flatpickr-day" aria-label="May 31, 2025" tabindex="-1">31</span><span class="flatpickr-day nextMonthDay" aria-label="June 1, 2025" tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="June 2, 2025" tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="June 3, 2025" tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="June 4, 2025" tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="June 5, 2025" tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="June 6, 2025" tabindex="-1">6</span><span class="flatpickr-day nextMonthDay" aria-label="June 7, 2025" tabindex="-1">7</span></div></div></div></div></div><div class="flatpickr-calendar animate" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month flatpickr-disabled"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><select class="flatpickr-monthDropdown-months" aria-label="Month" tabindex="-1"><option class="flatpickr-monthDropdown-month" value="4" tabindex="-1" selected="selected">May</option><option class="flatpickr-monthDropdown-month" value="5" tabindex="-1">June</option><option class="flatpickr-monthDropdown-month" value="6" tabindex="-1">July</option><option class="flatpickr-monthDropdown-month" value="7" tabindex="-1">August</option><option class="flatpickr-monthDropdown-month" value="8" tabindex="-1">September</option><option class="flatpickr-monthDropdown-month" value="9" tabindex="-1">October</option><option class="flatpickr-monthDropdown-month" value="10" tabindex="-1">November</option><option class="flatpickr-monthDropdown-month" value="11" tabindex="-1">December</option></select><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year" min="2025" value="2025"><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
+      <span class="flatpickr-weekday">
+        Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
+      </span>
+      </div></div><div class="flatpickr-days" tabindex="-1"><div class="dayContainer"><span class="flatpickr-day prevMonthDay flatpickr-disabled" aria-label="April 27, 2025">27</span><span class="flatpickr-day prevMonthDay flatpickr-disabled" aria-label="April 28, 2025">28</span><span class="flatpickr-day prevMonthDay flatpickr-disabled" aria-label="April 29, 2025">29</span><span class="flatpickr-day prevMonthDay flatpickr-disabled" aria-label="April 30, 2025">30</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 1, 2025">1</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 2, 2025">2</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 3, 2025">3</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 4, 2025">4</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 5, 2025">5</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 6, 2025">6</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 7, 2025">7</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 8, 2025">8</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 9, 2025">9</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 10, 2025">10</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 11, 2025">11</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 12, 2025">12</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 13, 2025">13</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 14, 2025">14</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 15, 2025">15</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 16, 2025">16</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 17, 2025">17</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 18, 2025">18</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 19, 2025">19</span><span class="flatpickr-day flatpickr-disabled" aria-label="May 20, 2025">20</span><span class="flatpickr-day today" aria-label="May 21, 2025" aria-current="date" tabindex="-1">21</span><span class="flatpickr-day" aria-label="May 22, 2025" tabindex="-1">22</span><span class="flatpickr-day" aria-label="May 23, 2025" tabindex="-1">23</span><span class="flatpickr-day" aria-label="May 24, 2025" tabindex="-1">24</span><span class="flatpickr-day" aria-label="May 25, 2025" tabindex="-1">25</span><span class="flatpickr-day" aria-label="May 26, 2025" tabindex="-1">26</span><span class="flatpickr-day" aria-label="May 27, 2025" tabindex="-1">27</span><span class="flatpickr-day" aria-label="May 28, 2025" tabindex="-1">28</span><span class="flatpickr-day" aria-label="May 29, 2025" tabindex="-1">29</span><span class="flatpickr-day" aria-label="May 30, 2025" tabindex="-1">30</span><span class="flatpickr-day" aria-label="May 31, 2025" tabindex="-1">31</span><span class="flatpickr-day nextMonthDay" aria-label="June 1, 2025" tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="June 2, 2025" tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="June 3, 2025" tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="June 4, 2025" tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="June 5, 2025" tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="June 6, 2025" tabindex="-1">6</span><span class="flatpickr-day nextMonthDay" aria-label="June 7, 2025" tabindex="-1">7</span></div></div></div></div></div></body></html>
