@@ -75,7 +75,7 @@ Bash
 open index.html
 
 # Example (Windows)
-start index.html
+start INDEX.html
 Usage
 Home Page: Browse the hero section, amenities, and gallery to get a feel for the hotel.
 Room Search:
